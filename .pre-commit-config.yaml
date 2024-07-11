@@ -20,24 +20,16 @@ repos:
     hooks:
       - id: gitleaks
 
-  - repo: https://github.com/hhatto/autopep8
-    rev: "v2.3.1"
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.4.1
     hooks:
-      - id: autopep8
-
-  - repo: https://github.com/psf/black
-    rev: 24.4.2
-    hooks:
-      - id: black
-        description: The uncompromising Python code formatter
-        entry: black
-        name: black
-        args: ["--line-length=79"]
-
-  - repo: https://github.com/pycqa/isort
-    rev: 5.13.2
-    hooks:
-      - id: isort
+      - id: ruff
+        name: lint with ruff
+      - id: ruff
+        name: sort imports with ruff
+        args: [--select, I, --fix]
+      - id: ruff-format
+        name: format with ruff
 
   - repo: https://github.com/PyCQA/bandit
     rev: 1.7.9
